@@ -25,7 +25,7 @@
     <dependency>
       <groupId>com.gitlab.jade-project</groupId>
       <artifactId>jade</artifactId>
-      <version>master-SNAPSHOT</version>
+      <version>master-m4.5.3-g165fec3-1</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
