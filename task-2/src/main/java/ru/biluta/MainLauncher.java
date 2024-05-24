@@ -6,6 +6,8 @@ import jade.core.Runtime;
 import jade.wrapper.AgentContainer;
 import jade.wrapper.AgentController;
 import jade.wrapper.StaleProxyException;
+import ru.biluta.agents.BookBuyerAgent;
+import ru.biluta.agents.BookSellerAgent;
 
 import java.util.*;
 
@@ -38,13 +40,13 @@ public class MainLauncher {
 
                 Object[] sellerArgs = {catalogue};
                 AgentController seller = mainContainer.createNewAgent("seller" + i,
-                        "ru.biluta.agents.BookSellerAgent", sellerArgs);
+                        BookSellerAgent.class.getName(), sellerArgs);
                 seller.start();
             }
 
             AgentController buyerAgent = mainContainer.createNewAgent(
                     "buyer",
-                    "ru.biluta.agents.BookBuyerAgent",
+                    BookBuyerAgent.class.getName(),
                     new Object[] {"Java Programming"}
             );
             buyerAgent.start();
