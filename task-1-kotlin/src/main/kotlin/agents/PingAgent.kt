@@ -1,5 +1,6 @@
 package agents
 
+import jade.core.AID
 import jade.core.Agent
 import jade.core.behaviours.CyclicBehaviour
 import jade.lang.acl.ACLMessage
@@ -14,7 +15,7 @@ class PingAgent : Agent() {
         override fun action() {
             val msg = ACLMessage(ACLMessage.INFORM)
             msg.content = "ping"
-            msg.addReceiver(aid)
+            msg.addReceiver(AID("PongAgent", AID.ISLOCALNAME))
             send(msg)
             println("Ping sent by ${aid.name}")
 

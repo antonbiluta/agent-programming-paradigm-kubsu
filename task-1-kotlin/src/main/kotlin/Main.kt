@@ -1,3 +1,6 @@
+import agents.HelloWorldAgent
+import agents.PingAgent
+import agents.PongAgent
 import jade.core.Profile
 import jade.core.ProfileImpl
 import jade.core.Runtime
@@ -12,9 +15,9 @@ fun main() {
     val mainContainer: AgentContainer = runtime.createMainContainer(profile)
 
     try {
-        val helloWorldAgent: AgentController = mainContainer.createNewAgent("HelloWorldAgent", "agents.HelloWorldAgent", null)
-        val pingAgent: AgentController = mainContainer.createNewAgent("PingAgent", "agents.PingAgent", null)
-        val pongAgent: AgentController = mainContainer.createNewAgent("PongAgent", "agents.PongAgent", null)
+        val helloWorldAgent: AgentController = mainContainer.createNewAgent("HelloWorldAgent", HelloWorldAgent::class.java.name, null)
+        val pingAgent: AgentController = mainContainer.createNewAgent("PingAgent", PingAgent::class.java.name, null)
+        val pongAgent: AgentController = mainContainer.createNewAgent("PongAgent", PongAgent::class.java.name, null)
 
         helloWorldAgent.start()
         pingAgent.start()
