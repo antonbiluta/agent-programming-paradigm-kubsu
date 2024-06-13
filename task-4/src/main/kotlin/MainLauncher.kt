@@ -1,6 +1,6 @@
 package ru.biluta
 
-import jade.core.ProfileException
+import jade.core.Profile
 import jade.core.ProfileImpl
 import jade.core.Runtime
 import jade.wrapper.AgentContainer
@@ -25,6 +25,7 @@ fun main() {
         listOf(manager, assembler1, assembler2, warehouse).forEach {
             it.start()
         }
+
         println("Все агенты запущены.")
     } catch (e: StaleProxyException) {
         e.printStackTrace()
@@ -32,7 +33,8 @@ fun main() {
 }
 
 fun initProfile(p: ProfileImpl = ProfileImpl()): ProfileImpl {
-    //p.setParameter("gui", "true")
+    p.setParameter(Profile.MAIN_HOST, "localhost");
+    // p.setParameter(Profile.GUI, "true");
     return p
 }
 

@@ -9,6 +9,7 @@ fun main() {
     val profile: Profile = ProfileImpl()
     profile.setParameter(Profile.MAIN_HOST, "localhost")
     profile.setParameter(Profile.MAIN_PORT, "1099")
+    //profile.setParameter(Profile.GUI, "true")
     val mainContainer: AgentContainer = runtime.createMainContainer(profile)
 
     try {
